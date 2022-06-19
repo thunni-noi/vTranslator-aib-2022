@@ -30,10 +30,10 @@ st.set_page_config(
 @st.cache(allow_output_mutation=True)
 def web_init():
     #global tokenizer, asrmodel, translator
-    v1_tokenizer = Wav2Vec2Processor.from_pretrained('model/v1')
-    v1_asrmodel = Wav2Vec2ForCTC.from_pretrained('model/v1')
-    v2_tokenizer = Wav2Vec2Processor.from_pretrained('model/v2')
-    v2_asrmodel = Wav2Vec2ForCTC.from_pretrained('model/v2')
+    v1_tokenizer = Wav2Vec2Processor.from_pretrained('thunninoi/wav2vec2-japanese-hiragana-vtuber')
+    v1_asrmodel = Wav2Vec2ForCTC.from_pretrained('thunninoi/wav2vec2-japanese-hiragana-vtuber')
+    v2_tokenizer = Wav2Vec2Processor.from_pretrained('thunninoi/wav2vec2-japanese-vtuber')
+    v2_asrmodel = Wav2Vec2ForCTC.from_pretrained('thunninoi/wav2vec2-japanese-vtuber')
     translator = Translator()
     return v1_tokenizer, v1_asrmodel,v2_tokenizer, v2_asrmodel, translator
     
