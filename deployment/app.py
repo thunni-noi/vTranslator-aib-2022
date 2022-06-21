@@ -159,7 +159,8 @@ if has_video:
                 #vid_img_preview_container.empty()
                 with st.spinner('Generating preview....'):
                     image_preview = ImageClip(f'deployment\preview\{preview_pic}')
-                    subtitle_preview = TextClip(txt=str(preview_text), size=(1500,size_text*5), font = font_text, color = color_text, method='caption')
+                    #subtitle_preview = TextClip(txt=str(preview_text), size=(min(1920, (len(preview_text)) * size_text), 0), font = font_text, color = color_text, method='caption')
+                    subtitle_preview = TextClip(txt=str(preview_text), size=(min(1920, (len(preview_text)) * size_text), 0), font = font_text, color = color_text)
                     subtitle_preview.set_position('center')
                     if text_bg:
                         im_w, im_h = subtitle_preview.size
@@ -272,8 +273,10 @@ if run_button:
                     line_count += 1
         if add_sub:
             with st.spinner('ADDING SUBTITLES INTO VIDEO!'):
+                video = VideoFileClip('deployment/temp/target_video.mp4')
+                video_width = video.w
                 def sub_template(txt):
-                        text = TextClip(txt, size=(len(txt) * size_text, 0), font = font_text, color = color_text, method = 'label')
+                        text = TextClip(txt, size= (min(video_width, len(txt) * size_text), 0) , font = font_text, color = color_text, method = 'label')
                         text.set_position('center')
                         if text_bg:
                             im_w, im_h = text.size
@@ -285,8 +288,6 @@ if run_button:
                 #generator = lambda txt: TextClip(txt, size=(size_text * 25, 0), font = font_text, color = color_text)
                 generator = sub_template
                 subtitles = SubtitlesClip(output_path + 'subtitle.srt', generator)
-                
-                video = VideoFileClip('deployment/temp/target_video.mp4')
                 result = CompositeVideoClip([video, subtitles.set_position((str(text_pos_x),float(text_pos_y / 100)),relative = True)])
                 result.write_videofile(output_path + 'subbed.mp4', fps=video.fps, temp_audiofile="temp-audio.m4a", remove_temp=True, codec="libx264", audio_codec="aac")
                 #remove temp file
