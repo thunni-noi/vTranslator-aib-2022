@@ -12,6 +12,7 @@ Install required library using
 pip install -r requirements.txt
 
 ```
+or install it manually
 ```bash
 googletrans==3.1.0a0
 moviepy==1.0.3
