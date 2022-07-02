@@ -34,3 +34,5 @@ python -m streamlit run deployment\app.py
 ```
 And it'll open in your browser, boom!
 
+You can view example [here!](https://youtu.be/NE7SbS7pMFg)
+
