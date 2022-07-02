@@ -34,5 +34,7 @@ python -m streamlit run deployment\app.py
 ```
 And it'll open in your browser, boom!
 
+Medium blog available [here](https://medium.com/@thunninoi/vtranslator-vtuber-speech-recognition-with-wav2vec2-cba2e2c4a6df).
+
 You can view example [here!](https://youtu.be/NE7SbS7pMFg)
 
