@@ -2,6 +2,9 @@ import streamlit as st
 import streamlit.components.v1 as components
 from streamlit_extras.switch_page_button import switch_page
 
+if 'api_key' not in st.session_state:
+    st.session_state['api_key'] = ''
+
 st.set_page_config(
     layout='wide',
     page_title="Main"

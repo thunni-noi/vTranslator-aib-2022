@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+			html, body, [class*="css"]  {
+			font-family: 'Kanit', sans-serif;
+			}
+   
+.title-font {
+    font-size:100px;
+    color:#57ACDC;
+    text-align:center;
+}
+.pageheader-font {
+    font-size: 50px !important;
+    text-align:center;
+}
+.pic-container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    object-fit: contain;
+    width: 25%;
+    height: 25%;
+}
+.middle-align {
+    text-align:center;
+}
+.large-font {
+    font-size: 50px !important;
+}
+.stButton>button {
+    height: auto;
+    width: 95%;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+.stButton> button > div[data-testid="stMarkdownContainer"] > p {
+    font-size: 20px;
+}
