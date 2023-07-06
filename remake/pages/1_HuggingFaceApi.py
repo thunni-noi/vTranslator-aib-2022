@@ -1,5 +1,5 @@
 import streamlit as st
-import function.api_handler as api_handler
+import function.utils as utils
 import streamlit.components.v1 as components
 from streamlit_extras.switch_page_button import switch_page
 
@@ -29,7 +29,7 @@ api_key = st.text_input('Huggingface API Key',placeholder='Put your huggingface 
 
 if api_key:
     with st.spinner('Verifying the api token...'):
-            key_valid = api_handler.api_test(api_key)
+            key_valid = utils.huggingface_handler.api_test(api_key)
             if key_valid : 
                 st.success('Token valid!')
                 st.session_state['api_key'] = api_key
